@@ -37,7 +37,7 @@ function RoboScene({ ...props }) {
   return (
     <group ref={group} {...props} dispose={null}>
       <group name="Scene">
-        <group name="Empty" position={[0, 0.463, 0]} rotation={[Math.PI / 2, 0, 0]} scale={0.412}>
+        <group name="Empty" position={[0.1, 0.163, -0.6]} rotation={[1.5, 0.3, 0.5]} scale={0.412}>
           <group name="Armature001" position={[0, -0.018, 1.122]} scale={0.024}>
             <skinnedMesh
               name="geometry_0"
