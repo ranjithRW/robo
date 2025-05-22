@@ -4,16 +4,10 @@ import { useState } from 'react'
 import RoboScene from './roboScene'
 
 function ModelViewer() {
-  const [isWalking, setIsWalking] = useState(true)
 
   return (
     <div style={{ width: '100vw', height: '100vh' }}>
-      <button 
-        style={{ position: 'absolute', top: 20, left: 20, zIndex: 1000 }}
-        onClick={() => setIsWalking(!isWalking)}
-      >
-        {isWalking ? 'STOP WALKING' : 'START WALKING'}
-      </button>
+   
 
       <Canvas camera={{ position: [3, 2, 5], fov: 50 }}>
         <ambientLight intensity={0.5} />
@@ -27,7 +21,7 @@ function ModelViewer() {
         <Environment preset="city" />
         
         <RoboScene 
-          isWalking={isWalking}
+
           position={[0, -0.5, 0]}
           rotation={[0, Math.PI, 0]}
           scale={0.8}
