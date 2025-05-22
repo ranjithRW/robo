@@ -1,11 +1,10 @@
-import ModelViewer from './ModelViewer';
-
+import LandingPage from './LandingPage';
 
 function App() {
 
   return (
   <div className="App">
-      <ModelViewer />
+      <LandingPage/>
     </div>
   )
 }

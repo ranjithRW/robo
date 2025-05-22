@@ -1,17 +1,18 @@
-import React, { useRef, useEffect } from 'react'
+import React, { useRef, useEffect, useState } from 'react'
 import { useGLTF, useAnimations } from '@react-three/drei'
 import { useFrame } from '@react-three/fiber'
 import * as THREE from 'three'
 
 function RoboScene({ isWalking, ...props }) {
   const group = useRef()
+  const directionRef = useRef(1) // 1 for right, -1 for left
   const { nodes, materials, animations } = useGLTF('/Roboo3.glb')
   const { actions } = useAnimations(animations, group)
 
   // Animation setup
   useEffect(() => {
     const animationName = 'Armature.001|mixamo.com|Layer0'
-    
+
     if (actions[animationName]) {
       if (isWalking) {
         actions[animationName]
@@ -32,10 +33,25 @@ function RoboScene({ isWalking, ...props }) {
     }
   }, [actions, isWalking])
 
-  // Update animation mixer every frame
+  // Frame update
   useFrame((_, delta) => {
-    if (isWalking) {
-      group.current.position.z += delta * 1.5 // Adjust movement speed
+    if (!isWalking || !group.current) return
+
+    // Move along X axis
+    group.current.position.x += delta * 1.5 * directionRef.current
+
+    // Define edge limits
+    const leftEdge = -5
+    const rightEdge = 5
+
+    if (group.current.position.x >= rightEdge) {
+      directionRef.current = -1
+      group.current.rotation.y = Math.PI // Turn to left
+    }
+
+    if (group.current.position.x <= leftEdge) {
+      directionRef.current = 1
+      group.current.rotation.y = 0 // Turn to right
     }
   })
 

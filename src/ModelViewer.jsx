@@ -40,7 +40,6 @@ function ModelViewer() {
           maxDistance={10}
         />
         
-        <gridHelper args={[10, 10]} />
       </Canvas>
     </div>
   )
