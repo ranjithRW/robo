@@ -5,7 +5,8 @@ function App() {
 
   return (
   <div className="App">
-    <ModelViewer/>
+    {/* <ModelViewer/> */}
+    <LandingPage />
     </div>
   )
 }
