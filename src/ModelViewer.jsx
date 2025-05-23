@@ -15,12 +15,10 @@ function ModelViewer() {
                 fov: 50,
             }}>
 
-                <ambientLight intensity={0.5} />
+                <ambientLight intensity={1} />
                 <directionalLight
                     position={[5, 5, 5]}
-                    intensity={1.5}
-                    castShadow
-                    shadow-mapSize={[2048, 2048]}
+                    intensity={15}                   
                 />
 
                 <Environment preset="city" />
