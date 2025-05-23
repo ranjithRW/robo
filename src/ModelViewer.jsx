@@ -13,7 +13,6 @@ function ModelViewer() {
             <Canvas camera={{
                 position: [0, 2, 5],  // Changed camera position
                 fov: 50,
-                rotation: [0, 0, 0]   // Reset camera rotation
             }}>
 
                 <ambientLight intensity={0.5} />
@@ -28,7 +27,7 @@ function ModelViewer() {
 
                 <RoboScene
                     position={[0, -0.5, 0]}
-                    rotation={[0, 5, 0]}
+                    rotation={[0, 0, 0]}
                     scale={3}
                 />
 
